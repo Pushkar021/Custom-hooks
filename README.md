@@ -1,12 +1,91 @@
-# React + Vite
+Absolutely! Here's the **actual `README.md` code** you can directly copy and paste into your project:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```md
+# 🪝 React Custom Hooks
 
-Currently, two official plugins are available:
+This repository contains reusable React custom hooks for common tasks like checking online status, tracking mouse position, and fetching data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📦 Hooks Included
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ✅ `useOnline`
+
+Tracks the user's internet connection status.
+
+**File:** `hooks/useOnline.js`
+
+#### Usage:
+
+```js
+import useOnline from './hooks/useOnline';
+
+function Status() {
+  const isOnline = useOnline();
+  return <h2>{isOnline ? "✅ Online" : "❌ Offline"}</h2>;
+}
+```
+
+---
+
+### 🖱 `useMousePointer`
+
+Tracks the mouse cursor position on the screen.
+
+**File:** `hooks/useMousePointer.js`
+
+#### Usage:
+
+```js
+import useMousePointer from './hooks/useMousePointer';
+
+function MouseTracker() {
+  const { x, y } = useMousePointer();
+  return <p>Mouse is at X: {x}, Y: {y}</p>;
+}
+```
+
+---
+
+### 🌐 `useData`
+
+Fetches data from a given API endpoint.
+
+**File:** `hooks/useData.js`
+
+#### Usage:
+
+```js
+import useData from './hooks/useData';
+
+function UsersList() {
+  const { info, loading } = useData();
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <ul>
+      {info.map((user, index) => (
+        <li key={index}>{user.firstname}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+---
+
+## 🧠 Why Use Custom Hooks?
+
+- Cleaner components
+- Code reusability
+- Easy testing
+- Separation of logic and UI
+
+---
+
+
+
+## 📄 License
+
+This project is open-source and free to use.
